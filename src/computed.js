@@ -7,8 +7,7 @@ export const bird_bottom = {
 };
 
 export function bird_flap() {
-    const pos = this.bird.vel < -100 ? 'down' : this.bird.vel > 100 ? 'up' : 'mid';
-    return `src/assets/sprites/yellowbird-${pos}flap.png`;
+    return this.bird.vel < -100 ? 'down' : this.bird.vel > 100 ? 'up' : 'mid';
 }
 
 export function pipes_0() {
