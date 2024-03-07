@@ -19,6 +19,8 @@
     <link href="src/assets/main.css" rel="stylesheet">
 </head>
 
+<!-- aa01 -->
+
 <body>
 
 <div id="app">
@@ -36,9 +38,9 @@
         </div>
         <div id="game" ref="game" :style="{visibility: visible.game}" @click="jumpBird">
             <div id="bird" ref="bird" :style="`top: ${bird.top}px`">
-                <img v-show="bird_flap === 'down'" src="src/assets/sprites/yellowbird-downflap.png" alt="bird">
-                <img v-show="bird_flap === 'mid'" src="src/assets/sprites/yellowbird-midflap.png" alt="bird">
-                <img v-show="bird_flap === 'up'" src="src/assets/sprites/yellowbird-upflap.png" alt="bird">
+                <img v-show="bird_flap === 'down'" src="src/assets/sprites/yellowbird-downflap.png" alt="downflap">
+                <img v-show="bird_flap === 'mid'" src="src/assets/sprites/yellowbird-midflap.png" alt="midflap">
+                <img v-show="bird_flap === 'up'" src="src/assets/sprites/yellowbird-upflap.png" alt="upflap">
             </div>
             <div v-for="pipe in pipes" ref="pipe" :style="`left: ${pipe.left}px; top: ${pipe.top}px`" class="pipe">
                 <img ref="pipeUpper" alt="pipe-upper" class="upper" src="src/assets/sprites/pipe-green.png">
