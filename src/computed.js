@@ -7,7 +7,11 @@ export const bird_bottom = {
 };
 
 export function bird_flap() {
-    return this.bird.vel < -100 ? 'down' : this.bird.vel > 100 ? 'up' : 'mid';
+    return {
+        down: this.bird.vel < -100                          ? 'visible' : 'hidden',
+        mid:  this.bird.vel >  100                          ? 'visible' : 'hidden',
+        up:   this.bird.vel <= 100 && this.bird.vel >= -100 ? 'visible' : 'hidden'
+    }
 }
 
 export function pipes_0() {
