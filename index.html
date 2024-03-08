@@ -45,8 +45,18 @@
                 <img alt="pipe-lower" class="lower" src="src/assets/sprites/pipe-green.png">
             </div>
             <div id="score" ref="score" :style="{visibility: visible.score}">
-                <img v-for="num in numArr.score" :alt="num" :src="`src/assets/sprites/${num}.png`"
-                     :style="{marginLeft: -cache.scoreNegSpc + 'px'}">
+                <div v-for="num in numArr.score" :style="{marginLeft: -cache.scoreNegSpc + 'px'}">
+                    <img v-show="num === '0'" alt="0" src="src/assets/sprites/0.png">
+                    <img v-show="num === '1'" alt="1" src="src/assets/sprites/1.png">
+                    <img v-show="num === '2'" alt="2" src="src/assets/sprites/2.png">
+                    <img v-show="num === '3'" alt="3" src="src/assets/sprites/3.png">
+                    <img v-show="num === '4'" alt="4" src="src/assets/sprites/4.png">
+                    <img v-show="num === '5'" alt="5" src="src/assets/sprites/5.png">
+                    <img v-show="num === '6'" alt="6" src="src/assets/sprites/6.png">
+                    <img v-show="num === '7'" alt="7" src="src/assets/sprites/7.png">
+                    <img v-show="num === '8'" alt="8" src="src/assets/sprites/8.png">
+                    <img v-show="num === '9'" alt="9" src="src/assets/sprites/9.png">
+                </div>
             </div>
         </div>
         <div id="game-over" :style="{visibility: visible.gameOver}" @click="restart">
@@ -55,13 +65,35 @@
                 <div>
                     <div class="text">SCORE</div>
                     <div ref="gameOverScore" class="number">
-                        <img v-for="num in numArr.score" :alt="num" :src="`src/assets/sprites/mini${num}.png`">
+                        <div v-for="num in numArr.score">
+                            <img v-show="num === '0'" alt="0" src="src/assets/sprites/mini0.png">
+                            <img v-show="num === '1'" alt="1" src="src/assets/sprites/mini1.png">
+                            <img v-show="num === '2'" alt="2" src="src/assets/sprites/mini2.png">
+                            <img v-show="num === '3'" alt="3" src="src/assets/sprites/mini3.png">
+                            <img v-show="num === '4'" alt="4" src="src/assets/sprites/mini4.png">
+                            <img v-show="num === '5'" alt="5" src="src/assets/sprites/mini5.png">
+                            <img v-show="num === '6'" alt="6" src="src/assets/sprites/mini6.png">
+                            <img v-show="num === '7'" alt="7" src="src/assets/sprites/mini7.png">
+                            <img v-show="num === '8'" alt="8" src="src/assets/sprites/mini8.png">
+                            <img v-show="num === '9'" alt="9" src="src/assets/sprites/mini9.png">
+                        </div>
                     </div>
                 </div>
                 <div>
                     <div class="text"><span v-show="state.newBest">NEW</span>BEST</div>
                     <div ref="gameOverBest" class="number">
-                        <img v-for="num in numArr.best" :alt="num" :src="`src/assets/sprites/mini${num}.png`">
+                        <div v-for="num in numArr.best">
+                            <img v-show="num === '0'" alt="0" src="src/assets/sprites/mini0.png">
+                            <img v-show="num === '1'" alt="1" src="src/assets/sprites/mini1.png">
+                            <img v-show="num === '2'" alt="2" src="src/assets/sprites/mini2.png">
+                            <img v-show="num === '3'" alt="3" src="src/assets/sprites/mini3.png">
+                            <img v-show="num === '4'" alt="4" src="src/assets/sprites/mini4.png">
+                            <img v-show="num === '5'" alt="5" src="src/assets/sprites/mini5.png">
+                            <img v-show="num === '6'" alt="6" src="src/assets/sprites/mini6.png">
+                            <img v-show="num === '7'" alt="7" src="src/assets/sprites/mini7.png">
+                            <img v-show="num === '8'" alt="8" src="src/assets/sprites/mini8.png">
+                            <img v-show="num === '9'" alt="9" src="src/assets/sprites/mini9.png">
+                        </div>
                     </div>
                 </div>
             </div>

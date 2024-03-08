@@ -40,14 +40,6 @@ export function numArr() {
     }
 }
 
-export function scoreNumArr() {
-    return String(this.state.score).split('');
-}
-
-export function bestNumArr() {
-    return String(this.state.best).split('');
-}
-
 export function visible() {
     return {
         startMenu: this.show.startMenu                   ? 'visible' : 'hidden',

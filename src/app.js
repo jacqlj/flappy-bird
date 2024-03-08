@@ -31,7 +31,7 @@ const data = () => ({
     ], show: {
         startMenu: true, game: false, gameOver: false, night: false
     }, state: {
-        onTick: 0, dt: 0.02, score: 0, best: 0, newBest: false
+        onTick: 0, dt: 0.02, score: 0, best: 0, newBest: false, gameOverTimer: false
     }
 });
 
@@ -56,6 +56,7 @@ const mounted = async function() {
         if (evt.key !== ' ' && evt.key !== 'ArrowUp') return;
         if (app.show.startMenu) return app.startGame();
         if (!app.show.gameOver) return app.jumpBird();
+        app.restart();
     });
 
     let wait;

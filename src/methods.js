@@ -23,13 +23,18 @@ export function initCaches() {
     this.cache.pipePartRect    = this.$refs.pipeUpper[0].getBoundingClientRect();
     this.cache.gapHeight       = this.$refs.pipe[0].clientHeight - 2 * this.cache.pipePartRect.height;
     this.cache.scoreNegSpc     = this.$refs.score.clientHeight / 10;
+    this.cache.birdVel         = this.cache.birdRect.height / 45.75 * -500;
+    this.cache.birdAccel       = this.cache.birdRect.height / 45.75 * 1300;
+    this.cache.pipeVel         = this.cache.birdRect.height / 45.75 * -3;
 }
 
 export function initElems() {
-    // vertically center bird
+    // vertically center bird and set velocities
     this.bird.top = (this.cache.canvasRect.height - this.cache.birdRect.height) / 2;
+    this.bird.vel = this.cache.birdVel;
+    this.bird.accel = this.cache.birdAccel;
 
-    // position and init pipes
+    // position and set velocities
     this.pipes.forEach((p) => p.left = this.cache.canvasRect.width + 100);
     this.pipes[0].vel = -3;
     this.pipes[1].vel = 0;
@@ -103,6 +108,8 @@ export async function stepTime() {
     }
 
     clearInterval(this.onTick);
+    this.state.gameOverTimer = true;
+    setTimeout(() => this.state.gameOverTimer = false, 200);
 
     // retrieve and save best to firestore
     const docRef = doc(db, 'users', '5wCyDu8ynmOVwIWF7Lj3');
@@ -140,15 +147,15 @@ export function getRandomGapMid() {
 }
 
 export function jumpBird() {
-    this.bird.vel = -500;
+    this.bird.vel = this.cache.birdVel;
 }
 
 export function restart() {
+    if (this.state.gameOverTimer) return;
     this.show.startMenu = true;
     this.show.game = false;
     this.show.gameOver = false;
     this.initElems();
-    this.bird.vel = -500;
     this.state.score = 0;
     this.state.newBest = false;
 }
