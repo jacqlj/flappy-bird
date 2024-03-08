@@ -105,6 +105,11 @@ img {
     left: 42.5%;
 }
 
+#bird img {
+    position: absolute;
+    visibility: hidden;
+}
+
 .pipe {
     position: absolute;
     width: 20%;
