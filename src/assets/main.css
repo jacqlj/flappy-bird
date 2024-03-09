@@ -96,7 +96,7 @@ img {
 }
 
 .pipe .upper {
-    rotate: 180deg;
+    scale: 1 -1;
 }
 
 .pipe .lower {
